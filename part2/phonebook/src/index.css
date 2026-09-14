@@ -1,0 +1,22 @@
+h1{
+color:green;
+font-style:italic;
+}
+.success{
+background-color: grey;
+color:green;
+border-top:2px solid green;
+border-bottom:2px solid green;
+padding:0.8rem;
+margin:0.5rem 0;
+font-size: 23px;
+}
+.error{
+background-color: grey;
+color:red;
+border-top:2px solid red;
+border-bottom:2px solid red;
+padding:0.8rem;
+margin:0.5rem 0;
+font-size: 23px;
+}
