@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
+const cors = require('cors')
+const PORT = process.env.PORT || 3001
 
+app.use(cors())
 
 let data=[
     { 
@@ -34,6 +37,10 @@ morgan.token('body', (request) => {
   return ''
 })
 app.use(morgan(':method :url :status :body'))
+
+app.get('/', (req, res) => {
+  res.status(200).send('Server is running');
+});
 app.get('/api/persons',(request,response)=>{
 response.send(data)
 })
@@ -83,6 +90,6 @@ data= data.filter(item=>item.id !== id)
  response.status(204).end()
 })
 
-app.listen('3001',()=>{
-console.log('listening on server 3001')
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
 })
