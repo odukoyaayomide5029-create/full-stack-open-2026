@@ -43,15 +43,15 @@ morgan.token('body', (request) => {
 })
 app.use(morgan(':method :url :status :body'))
 
-app.get('/', (req, res) => {
+app.get('/', (req, res,) => {
   res.status(200).send('Server is running');
 });
-app.get('/api/persons',(request,response)=>{
+app.get('/api/persons',(request,response,next)=>{
 Person.find({}).then(persons => {
     response.json(persons)
   }).catch(error => next(error))
 })
-app.get('/api/persons/:id',(request,response)=>{
+app.get('/api/persons/:id',(request,response,next)=>{
    Person.findById(request.params.id)
     .then(person => {
       if (person) {
