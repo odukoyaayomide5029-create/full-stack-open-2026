@@ -63,7 +63,7 @@ app.get('/api/persons/:id',(request,response)=>{
     .catch(error => next(error))
 
 })
-app.post('/api/persons',(request,response)=>{
+app.post('/api/persons',(request,response,next)=>{
    const body = request.body
    
 
@@ -114,6 +114,12 @@ const errorHandler = (error, request, response, next) => {
       error: 'malformatted id'
     })
   }
+  else if (error.name === 'ValidationError') {
+    return response.status(400).json({
+      error: error.message
+    })
+  }
+
 
   next(error)
 }
