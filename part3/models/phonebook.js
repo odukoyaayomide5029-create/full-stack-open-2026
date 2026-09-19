@@ -1,21 +1,15 @@
-require('dotenv').config()
+
 
 const mongoose=require('mongoose')
+
 
 // const password = process.argv[2]
 // const name = process.argv[3]
 // const number = process.argv[4]
 
-const url = process.env.MONGODB_URI
 
-mongoose.set('strictQuery',false)
 
-mongoose.connect(url, { family: 4 }).then(result => {
-    console.log('connected to MongoDB')
-  })
-  .catch(error => {
-    console.log('error connecting to MongoDB:', error.message)
-  })
+
 
 
 
